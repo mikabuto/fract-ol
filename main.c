@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:53:24 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/07/06 17:47:48 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:03:23 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ void	mandelbrot(t_fractol *f, t_image *img)
 	y = -1;
 	while (++y < HEI)
 	{
-		f->c.im = f->max.im - y * f->factor.im;
+		// f->c.im = f->max.im - y * f->factor.im;
 		x = -1;
 		while (++x < WID)
 		{
-			f->c.re = f->min.re + x * f->factor.re;
+			// f->c.re = f->min.re + x * f->factor.re;
+			f->c.re = (x - f->dx) * f->factor.re;
+			f->c.im = (f->dy - y) * f->factor.im;
 			z = init_complex(f->c.re, f->c.im);
 			i = 0;
-			// printf("c = %f %f z = %f %f\n", f->c.re, f->c.im, z.re, z.im);
+			// // printf("c = %f %f z = %f %f\n", f->c.re, f->c.im, z.re, z.im);
 			while (pow(z.re, 2) + pow(z.im, 2) <= 4 && i < ITER)
 			{
 				z = init_complex(pow(z.re, 2) - pow(z.im, 2) + f->c.re, \

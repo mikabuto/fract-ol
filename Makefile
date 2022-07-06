@@ -6,7 +6,7 @@
 #    By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 17:04:39 by mikabuto          #+#    #+#              #
-#    Updated: 2022/03/18 18:16:21 by mikabuto         ###   ########.fr        #
+#    Updated: 2022/07/06 19:27:09 by mikabuto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,9 @@ CFLAGS = -Wall -Werror -Wextra
 HEADER = fractol.h
 
 all: $(LIBFT) $(NAME)
+
+run: $(NAME)
+	./$(NAME) Mandelbrot
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(MINILIBX) $(LIBFTFLAG) -o $(NAME)

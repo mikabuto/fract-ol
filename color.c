@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 18:07:44 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/03/19 17:33:43 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/07/06 19:26:23 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	put_color(t_image *img, int i, int x, int y)
 							(int)(15 * pow((1 - t), 2) * pow(t, 2) * 255), \
 							(int)(8.5 * pow((1 - t), 3) * t * 255));
 		ft_mlx_pixel_put(img, x, y, color);
-		printf("%d ", i);
+		// printf("%d ", i);
 	}
 }

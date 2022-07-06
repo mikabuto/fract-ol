@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:51:14 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/07/06 17:44:15 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/07/06 19:55:15 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdio.h> //DELETE
 # include "libft/libft.h"
 
-# define WID 1000 // 2545
-# define HEI 1000 // 1225
+# define WID 2545 // 2545
+# define HEI 1225 // 1225
 # define ITER 50
 
 typedef struct		s_complex
@@ -48,6 +48,8 @@ typedef struct		s_fractol
 	t_complex		factor;
 	t_complex		c;
 	t_complex		k;
+	int				dx;
+	int				dy;
 	// t_bool			is_julia_fixed;
 	int				start_line;
 	int				finish_line;
