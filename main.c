@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:53:24 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/07/07 15:03:32 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:58:07 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,19 @@ void	create_image(t_fractol *frac)
 
 int	main(int argc, char **argv)
 {
-	t_fractol	*frac;
+	t_fractol	frac;
 
-	frac = malloc(sizeof(t_fractol));
-	if (!frac)
-		return (0);
-	if (argc == 2 && arg_handle(argv[1], frac))
+	if (argc == 2 && arg_handle(argv[1], &frac))
 	{
-		frac->mlx = mlx_init();
-		frac->window = mlx_new_window(frac->mlx, WID, HEI, "fractol");
-		create_image(frac);
-		mlx_loop(frac->mlx);
+		frac.mlx = mlx_init();
+		frac.window = mlx_new_window(frac.mlx, WID, HEI, "fractol");
+		create_image(&frac);
+		mlx_loop(frac.mlx);
 	}
 	else
 	{
 		ft_putstr("Args must be:\nMandelbrot\nJulia || Julia1 || Julia2\n");
 		ft_putstr("Celtic_mandelbrot\nBurning_ship\n");
-		free(frac);
 	}
 	return (0);
 }

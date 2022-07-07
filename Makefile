@@ -6,7 +6,7 @@
 #    By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 17:04:39 by mikabuto          #+#    #+#              #
-#    Updated: 2022/07/07 15:50:59 by mikabuto         ###   ########.fr        #
+#    Updated: 2022/07/07 15:56:07 by mikabuto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ all: $(NAME)
 
 run: $(NAME)
 	./$(NAME) Julia
+	leaks --atExit -- ./$(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(MINILIBX) -o $(NAME)
