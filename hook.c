@@ -6,14 +6,14 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:48:24 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/07/07 15:48:59 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:58:55 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "mlx_keycode.h"
 
-int	fractol_exit(t_fractol *f)
+static int	fractol_exit(t_fractol *f)
 {
 	if (f->mlx && f->window)
 		mlx_destroy_window(f->mlx, f->window);
@@ -22,23 +22,25 @@ int	fractol_exit(t_fractol *f)
 	exit(0);
 }
 
-int	key_hook(int keycode, t_fractol *f)
+static int	key_hook(int keycode, t_fractol *f)
 {
 	if (keycode == ESC_KEY)
 		fractol_exit(f);
 	if (keycode == UP_KEY)
-		f->dy += 10;
+		f->dy += 30;
 	if (keycode == DOWN_KEY)
-		f->dy -= 10;
+		f->dy -= 30;
 	if (keycode == RIGHT_KEY)
-		f->dx -= 10;
+		f->dx -= 30;
 	if (keycode == LEFT_KEY)
-		f->dx += 10;
+		f->dx += 30;
+	if (keycode == MAIN_PAD_SPACE)
+		f->color_shift = (f->color_shift + 1) % 3;
 	draw_fractol(f);
 	return (0);
 }
 
-int	scroll_hook(int keycode, int x, int y, t_fractol *f)
+static int	scroll_hook(int keycode, int x, int y, t_fractol *f)
 {
 	if (keycode == SCROLLDOWN_KEY)
 	{

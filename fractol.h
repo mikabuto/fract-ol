@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:51:14 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/07/07 15:48:30 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:37:21 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <mlx.h>
 # include <math.h>
 
-# define WID 1000 // 2545
-# define HEI 1000 // 1225
+# define WID 1000
+# define HEI 1000
 # define ITER 50
 
 typedef struct s_complex
@@ -50,14 +50,13 @@ typedef struct s_fractol
 	int				dx;
 	int				dy;
 	int				(*formula)(struct s_fractol *fractol, int x, int y);
+	int				color_shift;
 }					t_fractol;
 
 t_complex	init_complex(double re, double im);
 void		init_factor(t_fractol *f);
 
-void		ft_mlx_pixel_put(t_image *img, int x, int y, int color);
-int			create_rgb(int r, int g, int b);
-void		put_color(t_image *img, int i, int x, int y);
+void		put_color(t_fractol *f, int i, int x, int y);
 
 int			arg_handle(char *arg, t_fractol *f);
 

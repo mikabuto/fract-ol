@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:55:10 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/07/07 12:51:54 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:48:17 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	init_factor(t_fractol *f)
 			(f->max.im - f->min.im) / (HEI - 1));
 	f->dx = WID / 2;
 	f->dy = HEI / 2;
+	f->color_shift = 0;
 }

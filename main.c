@@ -6,7 +6,7 @@
 /*   By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:53:24 by mikabuto          #+#    #+#             */
-/*   Updated: 2022/07/07 15:58:07 by mikabuto         ###   ########.fr       */
+/*   Updated: 2022/07/08 17:03:04 by mikabuto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	draw_fractol(t_fractol *f)
 		{
 			f->c.re = (x - f->dx) * f->factor.re;
 			i = f->formula(f, x, y);
-			put_color(f->image, i, x, y);
+			put_color(f, i, x, y);
 		}
 	}
 	mlx_put_image_to_window(f->mlx, f->window, f->image->image, 0, 0);
 }
 
-void	create_image(t_fractol *frac)
+static void	create_image(t_fractol *frac)
 {
 	t_image	*img;
 

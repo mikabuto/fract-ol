@@ -6,7 +6,7 @@
 #    By: mikabuto <mikabuto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 17:04:39 by mikabuto          #+#    #+#              #
-#    Updated: 2022/07/07 15:56:07 by mikabuto         ###   ########.fr        #
+#    Updated: 2022/07/08 17:10:43 by mikabuto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ HEADER = fractol.h mlx_keycode.h
 all: $(NAME)
 
 run: $(NAME)
-	./$(NAME) Julia
-	leaks --atExit -- ./$(NAME)
+	leaks --atExit -- ./$(NAME) Mandelbrot
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(MINILIBX) -o $(NAME)
